@@ -15,10 +15,17 @@ export const ChatFooter: React.FC<ChatFooterProps> = ({ onMessageSend }) => {
     setMessage("");
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      onSendClick();
+    }
+  };
+
   return (
     <div css={styles.container}>
       <Input
         onChange={(event) => setMessage(event.currentTarget.value)}
+        onKeyDown={handleKeyDown}
         value={message}
       ></Input>
       <Button onClick={onSendClick}>Senden</Button>

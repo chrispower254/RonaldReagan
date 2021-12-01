@@ -9,23 +9,25 @@ import { ChatHeader } from "./chat-header";
 
 interface Props {
   readonly chatMessages: ChatMessage[];
+  readonly sendMessage: (message: string) => void;
 }
 
-export const ChatWindow: React.FC<Props> = ({ chatMessages }) => {
+export const ChatWindow: React.FC<Props> = ({ chatMessages, sendMessage }) => {
   return (
     <Draggable>
       <div css={styles.container}>
         <ChatHeader />
-        <div>
+        <div css={styles.messageWrapper}>
           {chatMessages.map((message) => (
             <ChatBubble
+              key={message.date.toISOString()}
               name={message.fromBot ? "Bot" : "Lorenz"}
               text={message.message}
               position={message.fromBot ? "left" : "right"}
             />
           ))}
         </div>
-        <ChatFooter onMessageSend={() => console.log("send MEssage")} />
+        <ChatFooter onMessageSend={sendMessage} />
       </div>
     </Draggable>
   );
@@ -37,5 +39,10 @@ const styles = {
     height: 500,
     boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.24)",
     padding: spacingMedium,
+    display: "flex",
+    flexDirection: "column",
+  }),
+  messageWrapper: css({
+    overflow: "auto",
   }),
 };

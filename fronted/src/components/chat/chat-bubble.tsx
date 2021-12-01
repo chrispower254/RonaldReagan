@@ -55,11 +55,16 @@ const styles = {
       position === "left" && {
         alignSelf: "flex-start",
         marginLeft: Props.notchWrapper,
+        marginRight: "20%",
         borderBottomLeftRadius: 0,
       },
       position === "right" && {
         alignSelf: "flex-end",
         borderBottomRightRadius: 0,
+        backgroundColor: "deepskyblue",
+        color: "white",
+        fontWeight: 500,
+        marginLeft: "20%",
         marginRight: Props.notchWrapper,
       }
     ),
@@ -107,6 +112,7 @@ const styles = {
         ...(position === "right" && {
           right: Props.notch,
           transform: "skew(45deg)",
+          backgroundColor: "deepskyblue",
         }),
       },
     }),
