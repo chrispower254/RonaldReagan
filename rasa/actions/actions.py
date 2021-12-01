@@ -13,6 +13,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 
+from actions import weather
+
 
 class ActionHelloWorld(Action):
 
@@ -38,7 +40,7 @@ class ActionAskWeather(Action):
         city = tracker.get_slot("location")
         print("City in slot" + city)
         # todo add weather api request
-        temperature = 8
+        temperature = weather.get_temperature(city)
         response_message = "The current temperature at {} is {} degree Celsius.".format(city, temperature)
         dispatcher.utter_message(text=response_message)
 

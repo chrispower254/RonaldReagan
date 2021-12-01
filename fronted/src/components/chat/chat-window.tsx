@@ -44,5 +44,6 @@ const styles = {
   }),
   messageWrapper: css({
     overflow: "auto",
+    flex: 1,
   }),
 };
