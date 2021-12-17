@@ -91,17 +91,10 @@ nlu:
       - am I talking to a bot?
       - am I talking to a human?
 
-  - intent: ask_weather
-    examples: |
-      - what is the weather now
-      - what is the temperature today
-      - what is the temperature
-      - hows the weather today
-
   - intent: ask_city_weather
     examples: |
-      - show me what`s the weather in [Paris](location)
-      - the weather condition in [Berlin](location)
-      - hows weather in [Rome](location)
-      - hows [Hamburg](location) today
-      - tell me temperature at [washington](location)
+      - show me what`s the weather in [Paris](GPE)
+      - the weather condition in [Berlin](GPE)
+      - hows weather in [Rome](GPE)
+      - hows [Hamburg](GPE) today
+      - tell me temperature at [washington](GPE)

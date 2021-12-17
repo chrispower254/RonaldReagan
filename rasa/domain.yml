@@ -16,6 +16,7 @@ actions:
 
 entities:
   - location
+  - GPE
 
 slots:
   location:
@@ -23,6 +24,11 @@ slots:
     mappings:
       - type: from_entity
         entity: location
+  GPE:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: GPE
 
 responses:
   utter_greet:

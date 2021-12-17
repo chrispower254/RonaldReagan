@@ -29,11 +29,6 @@ stories:
       - intent: deny
       - action: utter_goodbye
 
-  - story: ask weather with greeting
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_weather
 
   - story: ask city weather with greeting
     steps:
@@ -41,5 +36,5 @@ stories:
       - action: utter_greet
       - intent: ask_city_weather
         entities:
-          - location: "Hamburg"
+          - GPE: "Hamburg"
       - action: action_ask_city_weather

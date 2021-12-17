@@ -37,9 +37,9 @@ class ActionAskWeather(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        city = tracker.get_slot("location")
-        print("City in slot" + city)
-        # todo add weather api request
+        city = tracker.get_slot("GPE")
+        print("City in slot" + str(city))
+
         temperature = weather.get_temperature(city)
         response_message = "The current temperature at {} is {} degree Celsius.".format(city, temperature)
         dispatcher.utter_message(text=response_message)
