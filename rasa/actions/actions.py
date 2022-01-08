@@ -45,3 +45,21 @@ class ActionAskWeather(Action):
         dispatcher.utter_message(text=response_message)
 
         return [SlotSet("location", city)]
+
+
+class ActionAskWeatherForecast(Action):
+
+    def name(self) -> Text:
+        return "action_ask_city_weather_forecast"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        city = tracker.get_slot("GPE")
+        print("City in slot" + str(city))
+
+        forecast = weather.get_temperature_forecast(city)
+
+        dispatcher.utter_message(json_message=forecast)
+
+        return [SlotSet("location", city)]

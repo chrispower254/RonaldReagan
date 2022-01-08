@@ -97,4 +97,21 @@ nlu:
       - the weather condition in [Berlin](GPE)
       - hows weather in [Rome](GPE)
       - hows [Hamburg](GPE) today
+      - hows [Londong](GPE) today
       - tell me temperature at [washington](GPE)
+
+  - intent: ask_city_weather_forecast
+    examples: |
+      - show me what`s the weather in [Paris](GPE) for the next days
+      - what will the weather be in [Berlin](GPE)
+      - how is the weather in [Kiel](GPE) tomorrow
+      - how will the weather be in [Oslo](GPE) tomorrow
+      - how will the weather in [Amsterdam](GPE) be
+      - hows weather in [Rome](GPE) tomorrow
+      - hows weather in [London](GPE) the next days
+      - hows [Hamburg](GPE) tomorrow
+      - hows [Köln](GPE) the next three days
+      - hows [Hamburg](GPE) the next days
+      - tell me temperature at [Washington](GPE) for tomorrow
+      - tell me temperature at [New York](GPE) for the next three days
+      - tell me temperature at [Los Angeles](GPE) for the next days

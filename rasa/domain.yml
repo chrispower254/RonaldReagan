@@ -10,9 +10,11 @@ intents:
   - bot_challenge
   - ask_city_weather
   - ask_weather
+  - ask_city_weather_forecast
 
 actions:
   - action_ask_city_weather
+  - action_ask_city_weather_forecast
 
 entities:
   - location

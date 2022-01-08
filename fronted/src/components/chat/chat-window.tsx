@@ -18,14 +18,18 @@ export const ChatWindow: React.FC<Props> = ({ chatMessages, sendMessage }) => {
       <div css={styles.container}>
         <ChatHeader />
         <div css={styles.messageWrapper}>
-          {chatMessages.map((message) => (
-            <ChatBubble
-              key={message.date.toISOString()}
-              name={message.fromBot ? "Bot" : "Lorenz"}
-              text={message.message}
-              position={message.fromBot ? "left" : "right"}
-            />
-          ))}
+          {chatMessages.map((message) =>
+            message.forecast !== null ? (
+              <div>Forecast</div>
+            ) : (
+              <ChatBubble
+                key={message.date.toISOString()}
+                name={message.fromBot ? "Bot" : "Lorenz"}
+                text={message.message}
+                position={message.fromBot ? "left" : "right"}
+              />
+            )
+          )}
         </div>
         <ChatFooter onMessageSend={sendMessage} />
       </div>
