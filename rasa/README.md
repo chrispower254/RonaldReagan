@@ -6,12 +6,19 @@ Chatbot that can tell you the weather
 
 1. cd into rasa
 2. Set up an virtual enviroment with python 3.8, using venv or anaconda
-3. install package rasa and rasa-sdk in venv (if that takes forever checkout https://stackoverflow.com/questions/65806524/pip-install-rasa-x-takes-forever)
-4. activate virtual enviroment: `source ./venv/bin/activate` if you didnt use anaconda
-5. In order to handle custom actions, you need to start both the action server and rasa server
-6. To train a new model run `rasa train`
-7. To start action server: new Terminal with enabled venv and run: `rasa run actions`
-8. Start Rasa server with open API: `rasa run --enable-api --cors "*"`
+3. install package rasa, rasa-sdk  in venv (if that takes forever checkout https://stackoverflow.com/questions/65806524/pip-install-rasa-x-takes-forever)
+4. install spacy with `pip install -U pip setuptools wheel &&
+pip install -U spacy &&
+python -m spacy download en_core_web_sm`
+5. activate virtual enviroment: `source ./venv/bin/activate` if you didnt use anaconda
+6. In order to handle custom actions, you need to start both the action server and rasa server
+7. To train a new model run `rasa train`
+8. To start action server: new Terminal with enabled venv and run: `rasa run actions`
+9. Start Rasa server with open API: `cd rasa/` and `rasa run --enable-api --cors "*"`
+10. Post Requests to `http://localhost:5005/webhooks/rest/webhook` with body of request `{
+    "sender": "Test",
+    "message": "Whats the weather in Hamburg today"
+}`
 
 
 # Troubleshooting
