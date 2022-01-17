@@ -1,117 +1,168 @@
-version: "2.0"
-
+version: "3.0"
 nlu:
-  - intent: greet
-    examples: |
-      - hey
-      - hello
-      - hi
-      - hello there
-      - good morning
-      - good evening
-      - moin
-      - hey there
-      - let's go
-      - hey dude
-      - goodmorning
-      - goodevening
-      - good afternoon
-
-  - intent: goodbye
-    examples: |
-      - good afternoon
-      - cu
-      - good by
-      - cee you later
-      - good night
-      - bye
-      - goodbye
-      - have a nice day
-      - see you around
-      - bye bye
-      - see you later
-
-  - intent: affirm
-    examples: |
-      - yes
-      - y
-      - indeed
-      - of course
-      - that sounds good
-      - correct
-
-  - intent: deny
-    examples: |
-      - no
-      - n
-      - never
-      - I don't think so
-      - don't like that
-      - no way
-      - not really
-
-  - intent: mood_great
-    examples: |
-      - perfect
-      - great
-      - amazing
-      - feeling like a king
-      - wonderful
-      - I am feeling very good
-      - I am great
-      - I am amazing
-      - I am going to save the world
-      - super stoked
-      - extremely good
-      - so so perfect
-      - so good
-      - so perfect
-
-  - intent: mood_unhappy
-    examples: |
-      - my day was horrible
-      - I am sad
-      - I don't feel very well
-      - I am disappointed
-      - super sad
-      - I'm so sad
-      - sad
-      - very sad
-      - unhappy
-      - not good
-      - not very good
-      - extremly sad
-      - so saad
-      - so sad
-
-  - intent: bot_challenge
-    examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
-
-  - intent: ask_city_weather
-    examples: |
-      - show me what`s the weather in [Paris](GPE)
-      - the weather condition in [Berlin](GPE)
-      - hows weather in [Rome](GPE)
-      - hows [Hamburg](GPE) today
-      - hows [Londong](GPE) today
-      - tell me temperature at [washington](GPE)
-
-  - intent: ask_city_weather_forecast
-    examples: |
-      - show me what`s the weather in [Paris](GPE) for the next days
-      - what will the weather be in [Berlin](GPE)
-      - how is the weather in [Kiel](GPE) tomorrow
-      - how will the weather be in [Oslo](GPE) tomorrow
-      - how will the weather in [Amsterdam](GPE) be
-      - hows weather in [Rome](GPE) tomorrow
-      - hows weather in [London](GPE) the next days
-      - hows [Hamburg](GPE) tomorrow
-      - hows [Köln](GPE) the next three days
-      - hows [Hamburg](GPE) the next days
-      - tell me temperature at [Washington](GPE) for tomorrow
-      - tell me temperature at [New York](GPE) for the next three days
-      - tell me temperature at [Los Angeles](GPE) for the next days
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hi
+    - Hi Bot
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Bye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: thanks
+  examples: |
+    - thank you
+    - great
+    - thanks
+    - thx
+    - thanks a lot
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - I am great thanks
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: ask_rain_with_city
+  examples: |
+    - is it raining in [Paris](GPE)
+    - do I need an Umbrella in [Berlin](GPE) today?
+    - Am I getting wet in [Rome](GPE)?
+    - Does it rain in [Hamburg](GPE) today?
+    - Is it raining in [Hamburg](GPE) today?
+- intent: ask_rain_without_city
+  examples: |
+    - is it raining
+    - do I need an Umbrella today?
+    - Does it rain today?
+    - Is it raining outside?
+    - Is it wet today?
+    - Do I need an Umbrella?
+    - Can I go outside without getting wet?
+    - Am i getting wet?
+    - Is it raining?
+- intent: ask_forecast_with_city
+  examples: |
+    - show me what`s the weather in [Paris](GPE) for the next days
+    - what will the weather be in [Berlin](GPE)
+    - how is the weather in [Kiel](GPE) tomorrow
+    - how will the weather be in [Oslo](GPE) tomorrow
+    - how will the weather in [Amsterdam](GPE) be
+    - hows weather in [Rome](GPE) tomorrow
+    - hows weather in [London](GPE) the next days
+    - hows [Hamburg](GPE) tomorrow
+    - hows [Köln](GPE) the next three days
+    - hows [Hamburg](GPE) the next days
+    - tell me temperature at [Washington](GPE) for tomorrow
+    - tell me temperature at [New York](GPE) for the next three days
+    - tell me temperature at [Los Angeles](GPE) for the next days
+- intent: ask_forecast_without_city
+  examples: |
+    - show me what`s the weather for the next days
+    - what will the weather be?
+    - how is the weather tomorrow
+    - how will the weather be tomorrow
+    - hows weather tomorrow
+    - hows weather the next days
+    - how is it tomorrow
+    - tell me the temperature for tomorrow
+    - tell me temperature at for the next three days
+    - How will the weather be?
+- intent: ask_weather_without_city
+  examples: |
+    - What is the weather today?
+    - What is the weather like?
+    - Is the weather good?
+    - Is it sunny?
+    - What's the weather today?
+    - How is the weather today?
+- intent: ask_weather_with_city
+  examples: |
+    - show me what`s the weather in Paris
+    - tell me the weather in Munich
+    - the weather condition in Berlin
+    - hows weather in Rome
+    - how is Hamburg today?
+    - How is [Kiel](GPE) today?
+    - hows London today?
+    - Is it sunny in Paris today?
+    - Hows the weather in Hamburg?
+    - How is the weather in Cologne today?
+    - How is the weather in Berlin today?
+- intent: tell_city
+  examples: |
+    - [Hamburg](GPE)
+    - [London](GPE)
+    - Berlin
+    - Marseille[]{"entity": "GPE", "value": "Marseille"}

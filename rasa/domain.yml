@@ -1,52 +1,56 @@
-version: '"3.0"'
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ask_city_weather
-  - ask_weather
-  - ask_city_weather_forecast
-
-actions:
-  - action_ask_city_weather
-  - action_ask_city_weather_forecast
-
-entities:
-  - location
-  - GPE
-
-slots:
-  location:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: location
-  GPE:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: GPE
-
-responses:
-  utter_greet:
-    - text: Hey! How are you?
-  utter_cheer_up:
-    - text: 'Here is something to cheer you up:'
-      image: https://i.imgur.com/nGF1K8f.jpg
-  utter_did_that_help:
-    - text: Did that help you?
-  utter_happy:
-    - text: Great, carry on!
-  utter_goodbye:
-    - text: Bye
-  utter_iamabot:
-    - text: I am a bot, powered by Rasa.
-
+version: '3.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- goodbye
+- greet
+- ask_forecast_without_city
+- tell_city
+- ask_weather_with_city
+- thanks
+- ask_rain_without_city
+- mood_great
+- affirm
+- deny
+- mood_unhappy
+- bot_challenge
+- ask_rain_with_city
+- ask_forecast_with_city
+- ask_weather_without_city
+entities:
+- GPE
+slots:
+  GPE:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: GPE
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_GPE:
+  - text: Please tell me your location
+  utter_you_are_welcome:
+  - text: You are welcome!
+actions:
+- action_city_rain
+- action_city_weather
+- action_city_weather_forecast
+- utter_ask_GPE
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_you_are_welcome

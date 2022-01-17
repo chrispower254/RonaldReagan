@@ -29,28 +29,29 @@ class ActionHelloWorld(Action):
         return []
 
 
-class ActionAskWeather(Action):
+class ActionCityWeather(Action):
 
     def name(self) -> Text:
-        return "action_ask_city_weather"
+        return "action_city_weather"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         city = tracker.get_slot("GPE")
+
         print("City in slot" + str(city))
 
         temperature = weather.get_temperature(city)
         response_message = "The current temperature at {} is {} degree Celsius.".format(city, temperature)
         dispatcher.utter_message(text=response_message)
 
-        return [SlotSet("location", city)]
+        return []
 
 
-class ActionAskWeatherForecast(Action):
+class ActionCityWeatherForecast(Action):
 
     def name(self) -> Text:
-        return "action_ask_city_weather_forecast"
+        return "action_city_weather_forecast"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -62,4 +63,26 @@ class ActionAskWeatherForecast(Action):
 
         dispatcher.utter_message(json_message=forecast)
 
-        return [SlotSet("location", city)]
+        return []
+
+
+class ActionCityRain(Action):
+
+    def name(self) -> Text:
+        return "action_city_rain"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        city = tracker.get_slot("GPE")
+
+        print("City in slot" + str(city))
+
+        forecast = weather.get_temperature_forecast(city)
+
+        dispatcher.utter_message(text="Yes it is going to rain")
+
+        return []
+
+
+
