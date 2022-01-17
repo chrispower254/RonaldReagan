@@ -3,6 +3,7 @@ import React from "react";
 import Draggable from "react-draggable";
 import { ChatMessage } from "../../models/chat-message";
 import { spacingMedium } from "../../styles/spacing";
+import { ThreeDayForecast } from "../forecast/three-day-forecast";
 import { ChatBubble } from "./chat-bubble";
 import { ChatFooter } from "./chat-footer";
 import { ChatHeader } from "./chat-header";
@@ -20,7 +21,7 @@ export const ChatWindow: React.FC<Props> = ({ chatMessages, sendMessage }) => {
         <div css={styles.messageWrapper}>
           {chatMessages.map((message) =>
             message.forecast !== null ? (
-              <div>Forecast</div>
+              <ThreeDayForecast forecast={message.forecast} />
             ) : (
               <ChatBubble
                 key={message.date.toISOString()}
