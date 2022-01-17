@@ -27,3 +27,11 @@ def get_temperature_forecast(location):
     weather_forecast = list(
         ({"temperature": x["day"]["avgtemp_c"], "condition": x["day"]["condition"]["text"]}) for x in test_response)
     return weather_forecast
+
+
+def get_rain_text(location):
+    url = get_query_string(location)
+    response = requests.get(url).json()
+    humidity = int(response["current"]["humidity"])
+    text = "No you won't get wet" if humidity < 90 else "Bring you umbrella, they might be rain!"
+    return text

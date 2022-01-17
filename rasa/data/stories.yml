@@ -53,8 +53,7 @@ stories:
       - intent: ask_forecast_with_city
         entities:
           - GPE: "Berlin"
-      - action: action_city_weather_forecast
-
+      - action: action_city_weather
 
   - story: ask city weather rain with greeting
     steps:
@@ -63,89 +62,7 @@ stories:
       - intent: ask_rain_with_city
         entities:
           - GPE: "Berlin"
-      - action: action_city_rain
-
-#  - story: ask weather without city
-#    steps:
-#      - intent: ask_weather_without_city
-#      - action: utter_ask_GPE
-#      - intent: tell_city
-#        entities:
-#            - GPE: Hamburg
-#      - slot_was_set:
-#            - GPE: Hamburg
-#      - action: action_city_weather
-
-
-#  - story: interactive_story_1
-#    steps:
-#    - intent: greet
-#    - action: utter_greet
-#    - intent: ask_weather_with_city
-#      entities:
-#      - GPE: Hamburg
-#    - slot_was_set:
-#      - GPE: Hamburg
-#    - action: action_city_weather
-#    - intent: ask_rain_without_city
-#    - action: gpe_form
-#    - active_loop: gpe_form
-#    - action: action_city_weather
-#    - slot_was_set:
-#      - location: Hamburg
-#    - intent: goodbye
-#    - action: utter_goodbye
-
-#  - story: Weather without city
-#    steps:
-#    - intent: greet
-#    - action: utter_greet
-#    - intent: ask_weather_without_city
-#    - action: utter_ask_GPE
-#    - intent: tell_city
-#      entities:
-#      - GPE: Berlin
-#    - slot_was_set:
-#      - GPE: Berlin
-#    - action: action_city_weather
-#    - slot_was_set:
-#      - location: Berlin
-#    - intent: thanks
-#    - action: utter_you_are_welcome
-
-#  - story: rain without city
-#    steps:
-#    - intent: greet
-#    - action: utter_greet
-#    - intent: ask_rain_without_city
-#    - action: utter_ask_GPE
-#    - intent: tell_city
-#      entities:
-#        - GPE: Berlin
-#        - slot_was_set:
-#        - GPE: Berlin
-#    - action: action_city_rain
-#    - intent: thanks
-#    - action: utter_you_are_welcome
-#    - intent: goodbye
-#    - action: utter_goodbye
-
-#  - story: Weather forecast without city
-#    steps:
-#    - intent: greet
-#    - action: utter_greet
-#    - intent: ask_forecast_without_city
-#    - action: utter_ask_GPE
-#    - intent: tell_city
-#      entities:
-#        - GPE: Marseille
-#        - slot_was_set:
-#        - GPE: Marseille
-#    - action: action_city_weather_forecast
-#    - intent: thanks
-#    - action: utter_you_are_welcome
-#    - intent: goodbye
-#    - action: utter_goodbye
+      - action: action_city_weather
 
   - story: interactive_story_1
     steps:
@@ -158,3 +75,78 @@ stories:
     - intent: thanks
     - action: utter_you_are_welcome
 
+
+  - story: interactive_story_1
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_weather_without_city
+    - action: gpe_form
+    - active_loop: gpe_form
+    - slot_was_set:
+      - requested_slot: GPE
+    - slot_was_set:
+      - GPE: Hamburg
+    - slot_was_set:
+      - GPE: Hamburg
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_city_weather
+    - slot_was_set:
+      - location: Hamburg
+    - intent: goodbye
+    - action: utter_goodbye
+
+  - story: interactive_story_1
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_rain_without_city
+    - slot_was_set:
+      - weather_type: weather_rain
+    - action: gpe_form
+    - active_loop: gpe_form
+    - slot_was_set:
+      - requested_slot: GPE
+    - slot_was_set:
+      - GPE: Cologne
+    - slot_was_set:
+      - GPE: Cologne
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_city_weather
+    - slot_was_set:
+      - location: Cologne
+    - intent: thanks
+    - action: utter_you_are_welcome
+
+  - story: interactive_story_1
+    steps:
+    - intent: ask_forecast_without_city
+    - slot_was_set:
+      - weather_type: weather_forecast
+    - action: gpe_form
+    - active_loop: gpe_form
+    - slot_was_set:
+      - requested_slot: GPE
+    - intent: tell_city
+      entities:
+      - GPE: Kapstadt
+    - action: action_city_weather
+    - slot_was_set:
+      - location: null
+    - intent: goodbye
+    - action: utter_goodbye
+
+  - story: interactive_story_1
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_weather_with_city
+      entities:
+      - GPE: Hamburg
+    - slot_was_set:
+      - GPE: Hamburg
+    - action: action_city_weather

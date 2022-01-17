@@ -17,6 +17,8 @@ nlu:
     - good afternoon
     - Hi
     - Hi Bot
+    - Hi Not
+    - Hi there
 - intent: goodbye
   examples: |
     - good afternoon
@@ -46,6 +48,7 @@ nlu:
     - thanks
     - thx
     - thanks a lot
+    - Thanks
 - intent: deny
   examples: |
     - no
@@ -139,6 +142,7 @@ nlu:
     - tell me the temperature for tomorrow
     - tell me temperature at for the next three days
     - How will the weather be?
+    - How will the weather be tomorrow?
 - intent: ask_weather_without_city
   examples: |
     - What is the weather today?
@@ -147,6 +151,7 @@ nlu:
     - Is it sunny?
     - What's the weather today?
     - How is the weather today?
+    - How is the weather?
 - intent: ask_weather_with_city
   examples: |
     - show me what`s the weather in Paris
@@ -160,9 +165,12 @@ nlu:
     - Hows the weather in Hamburg?
     - How is the weather in Cologne today?
     - How is the weather in Berlin today?
+    - Cologne
+    - How is [Hamburg](GPE) today?
 - intent: tell_city
   examples: |
     - [Hamburg](GPE)
     - [London](GPE)
     - Berlin
     - Marseille[]{"entity": "GPE", "value": "Marseille"}
+    - Kapstadt[]{"entity": "GPE", "value": "Kapstadt"}

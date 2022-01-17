@@ -3,21 +3,21 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- goodbye
 - greet
-- ask_forecast_without_city
 - tell_city
-- ask_weather_with_city
+- goodbye
 - thanks
 - ask_rain_without_city
+- ask_rain_with_city
+- ask_weather_with_city
+- ask_weather_without_city
+- ask_forecast_without_city
+- ask_forecast_with_city
 - mood_great
 - affirm
 - deny
 - mood_unhappy
 - bot_challenge
-- ask_rain_with_city
-- ask_forecast_with_city
-- ask_weather_without_city
 entities:
 - GPE
 slots:
@@ -30,16 +30,29 @@ slots:
   weather_type:
     type: categorical
     influence_conversation: true
-    values:
-      - weather_today
-      - weather_rain
-      - weather_forecast
     mappings:
-    - type: custom
-forms:
-  gpe_form:
-    required_slots:
-      - GPE
+    - type: from_intent
+      value: weather_today
+      intent: ask_weather_without_city
+    - type: from_intent
+      value: weather_today
+      intent: ask_weather_with_city
+    - type: from_intent
+      value: weather_rain
+      intent: ask_rain_without_city
+    - type: from_intent
+      value: weather_rain
+      intent: ask_rain_with_city
+    - type: from_intent
+      value: weather_forecast
+      intent: ask_forecast_without_city
+    - type: from_intent
+      value: weather_forecast
+      intent: ask_forecast_with_city
+    values:
+    - weather_today
+    - weather_rain
+    - weather_forecast
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -59,11 +72,13 @@ responses:
   utter_you_are_welcome:
   - text: You are welcome!
 actions:
-- action_city_rain
 - action_city_weather
-- action_city_weather_forecast
 - utter_ask_GPE
 - utter_goodbye
 - utter_greet
 - utter_happy
 - utter_you_are_welcome
+forms:
+  gpe_form:
+    required_slots:
+    - GPE
