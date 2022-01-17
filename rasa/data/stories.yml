@@ -65,89 +65,87 @@ stories:
           - GPE: "Berlin"
       - action: action_city_rain
 
-  - story: ask weather without city
-    steps:
-      - intent: ask_weather_without_city
-      - action: utter_ask_GPE
-      - intent: tell_city
-        entities:
-            - GPE: Hamburg
-      - slot_was_set:
-            - GPE: Hamburg
-      - action: action_city_weather
+#  - story: ask weather without city
+#    steps:
+#      - intent: ask_weather_without_city
+#      - action: utter_ask_GPE
+#      - intent: tell_city
+#        entities:
+#            - GPE: Hamburg
+#      - slot_was_set:
+#            - GPE: Hamburg
+#      - action: action_city_weather
 
 
-  - story: interactive_story_1
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: ask_weather_with_city
-      entities:
-      - GPE: Hamburg
-    - slot_was_set:
-      - GPE: Hamburg
-    - action: action_city_weather
-    - intent: ask_rain_without_city
-    - action: utter_ask_GPE
-    - intent: tell_city
-      entities:
-      - GPE: Hamburg
-    - action: action_city_rain
-    - slot_was_set:
-      - location: Hamburg
-    - intent: goodbye
-    - action: utter_goodbye
+#  - story: interactive_story_1
+#    steps:
+#    - intent: greet
+#    - action: utter_greet
+#    - intent: ask_weather_with_city
+#      entities:
+#      - GPE: Hamburg
+#    - slot_was_set:
+#      - GPE: Hamburg
+#    - action: action_city_weather
+#    - intent: ask_rain_without_city
+#    - action: gpe_form
+#    - active_loop: gpe_form
+#    - action: action_city_weather
+#    - slot_was_set:
+#      - location: Hamburg
+#    - intent: goodbye
+#    - action: utter_goodbye
 
-  - story: Weather without city
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: ask_weather_without_city
-    - action: utter_ask_GPE
-    - intent: tell_city
-      entities:
-      - GPE: Berlin
-    - slot_was_set:
-      - GPE: Berlin
-    - action: action_city_weather
-    - slot_was_set:
-      - location: Berlin
-    - intent: thanks
-    - action: utter_you_are_welcome
+#  - story: Weather without city
+#    steps:
+#    - intent: greet
+#    - action: utter_greet
+#    - intent: ask_weather_without_city
+#    - action: utter_ask_GPE
+#    - intent: tell_city
+#      entities:
+#      - GPE: Berlin
+#    - slot_was_set:
+#      - GPE: Berlin
+#    - action: action_city_weather
+#    - slot_was_set:
+#      - location: Berlin
+#    - intent: thanks
+#    - action: utter_you_are_welcome
 
-  - story: rain without city
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: ask_rain_without_city
-    - action: utter_ask_GPE
-    - intent: tell_city
-      entities:
-        - GPE: Berlin
-        - slot_was_set:
-        - GPE: Berlin
-    - action: action_city_rain
-    - intent: thanks
-    - action: utter_you_are_welcome
-    - intent: goodbye
-    - action: utter_goodbye
+#  - story: rain without city
+#    steps:
+#    - intent: greet
+#    - action: utter_greet
+#    - intent: ask_rain_without_city
+#    - action: utter_ask_GPE
+#    - intent: tell_city
+#      entities:
+#        - GPE: Berlin
+#        - slot_was_set:
+#        - GPE: Berlin
+#    - action: action_city_rain
+#    - intent: thanks
+#    - action: utter_you_are_welcome
+#    - intent: goodbye
+#    - action: utter_goodbye
 
-  - story: Weather forecast without city
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: ask_forecast_without_city
-    - action: utter_ask_GPE
-    - intent: tell_city
-      entities:
-        - GPE: Marseille
-        - slot_was_set:
-        - GPE: Marseille
-    - action: action_city_weather_forecast
-    - intent: thanks
-    - action: utter_you_are_welcome
-    - intent: goodbye
-    - action: utter_goodbye
+#  - story: Weather forecast without city
+#    steps:
+#    - intent: greet
+#    - action: utter_greet
+#    - intent: ask_forecast_without_city
+#    - action: utter_ask_GPE
+#    - intent: tell_city
+#      entities:
+#        - GPE: Marseille
+#        - slot_was_set:
+#        - GPE: Marseille
+#    - action: action_city_weather_forecast
+#    - intent: thanks
+#    - action: utter_you_are_welcome
+#    - intent: goodbye
+#    - action: utter_goodbye
 
   - story: interactive_story_1
     steps:
@@ -160,53 +158,3 @@ stories:
     - intent: thanks
     - action: utter_you_are_welcome
 
-  - story: interactive_story_1
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: ask_forecast_without_city
-    - action: utter_ask_GPE
-    - intent: tell_city
-      entities:
-      - GPE: Marseille
-    - slot_was_set:
-      - GPE: Marseille
-    - action: action_city_weather_forecast
-    - intent: goodbye
-    - action: utter_goodbye
-
-  - story: interactive_3
-    steps:
-      - intent: ask_forecast_with_city
-      - action: action_city_weather_forecast
-      - intent: ask_forecast_without_city
-      - action: utter_ask_GPE
-      - intent: tell_city
-        entities:
-        - GPE: Marseille
-      - slot_was_set:
-        - GPE: Marseille
-      - action: action_city_weather_forecast
-
-
-  - story: interactive_4
-    steps:
-      - intent: ask_forecast_without_city
-      - action: utter_ask_GPE
-      - intent: tell_city
-        entities:
-          - GPE: Marseille
-      - slot_was_set:
-          - GPE: Marseille
-      - action: action_city_weather_forecast
-
-  - story: interactive_5
-    steps:
-      - intent: ask_rain_without_city
-      - action: utter_ask_GPE
-      - intent: tell_city
-        entities:
-          - GPE: Oslo
-      - slot_was_set:
-          - GPE: Oslo
-      - action: action_city_weather_forecast
