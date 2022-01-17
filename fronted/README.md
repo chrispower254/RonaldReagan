@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Before you start
+
+1. add a .env file in the root directory: ronaldReagen/frontend/.env for your local env-Variables
+2. add REACT_APP_RASA_SERVER_URL="http://localhost:5005/webhooks/rest/webhook" (replace server url, if you change port of rasa server)
+
 ## Available Scripts
 
 In the project directory, you can run:
