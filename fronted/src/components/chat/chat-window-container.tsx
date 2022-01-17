@@ -37,19 +37,5 @@ export const ChatWindowContainer: React.FC = () => {
       .then(handleResponse);
   };
 
-  const mockedMessages: ChatMessage[] = [
-    ...chatMessages,
-    {
-      message: "test",
-      date: new Date(),
-      forecast: [
-        { condition: "cloudy", temperature: 3.7, date: new Date(13, 1, 2022) },
-        { condition: "rain", temperature: 2.5, date: new Date(14, 1, 2022) },
-        { condition: "sunny", temperature: 6, date: new Date(15, 1, 2022) },
-      ],
-      fromBot: true,
-    },
-  ];
-
-  return <ChatWindow sendMessage={sendMessage} chatMessages={mockedMessages} />;
+  return <ChatWindow sendMessage={sendMessage} chatMessages={chatMessages} />;
 };
