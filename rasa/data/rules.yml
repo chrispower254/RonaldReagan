@@ -13,34 +13,33 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-#- rule: Activate location form (Rain)
-#  steps:
-#    - intent: ask_rain_without_city
-#    - action: gpe_form
-#    - active_loop: gpe_form
+- rule: Activate location form (Rain)
+  steps:
+    - intent: ask_rain_without_city
+    - action: gpe_form
+    - active_loop: gpe_form
 
-#- rule: Activate location form (Weather)
-#  steps:
-#    - intent: ask_weather_without_city
-#    - action: gpe_form
-#    - active_loop: gpe_form
+- rule: Activate location form (Weather)
+  steps:
+    - intent: ask_weather_without_city
+    - action: gpe_form
+    - active_loop: gpe_form
 
-#- rule: Activate location form (Forecast)
-#  steps:
-#    - intent: ask_forecast_without_city
-#    - action: gpe_form
-#    - active_loop: gpe_form
+- rule: Activate location form (Forecast)
+  steps:
+    - intent: ask_forecast_without_city
+    - action: gpe_form
+    - active_loop: gpe_form
 
-#- rule: Submit form
-#  condition:
-#  # Condition that form is active.
-#  - active_loop: gpe_form
-#  steps:
-#  # Form is deactivated
-#  - action: gpe_form
-#  - active_loop: null
-#  - slot_was_set:
-#    - requested_slot: null
-#  # The actions we want to run when the form is submitted.
-#  - action: utter_submit
-#  - action: utter_slots_values
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: gpe_form
+  steps:
+  # Form is deactivated
+  - action: gpe_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_city_weather

@@ -27,6 +27,19 @@ slots:
     mappings:
     - type: from_entity
       entity: GPE
+  weather_type:
+    - type: categorical
+      influence_conversation: true
+      values:
+        - weather_today
+        - weather_rain
+        - weather_forecast
+      mappings:
+        - type: custom
+forms:
+  gpe_form:
+    required_slots:
+      - GPE
 responses:
   utter_greet:
   - text: Hey! How are you?
